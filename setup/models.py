@@ -10,7 +10,6 @@ class Author(Base):
     first_name = Column(String(50))
     last_name = Column(String(50))
     created = Column(String(50))
-    author_id = Column(Integer, ForeignKey("authors.id"))
 
     books = relationship("Book", back_populates="author")
 
@@ -22,7 +21,7 @@ class Author(Base):
                f'author_id="{self.author.id}>'
 
 
-class BookModel(Base):
+class Book(Base):
     __tablename__ = "books"
 
     id = Column(Integer, primary_key=True, autoincrement=True)

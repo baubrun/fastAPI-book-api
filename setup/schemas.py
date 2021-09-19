@@ -1,21 +1,21 @@
 from pydantic import BaseModel, constr
+from typing import Optional
 
-class BookSchema(BaseModel):
-    id: int
+class Book(BaseModel):
+    id: Optional[int]
     title: constr(max_length=20)
     year : str
     author_id : int
 
     class Config:
-        orm_mode = False
+        orm_mode = True
 
-class AuthourSchema(BaseModel):
-    id: int
+class Author(BaseModel):
+    id: Optional[int]
     first_name : str
     last_name : str
     created : str
-    author_id : int
 
     class Config:
-        orm_mode = False
+        orm_mode = True
 

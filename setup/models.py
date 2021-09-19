@@ -1,7 +1,8 @@
 from db_config import Base
-from sqlalchemy import DateTime, Column, ForeignKey, Integer, String
+from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from datetime import datetime
+
 
 class Author(Base):
     __tablename__ = "authors"
@@ -11,7 +12,9 @@ class Author(Base):
     last_name = Column(String(50))
     created = Column(String(50))
 
-    books = relationship("Book", back_populates="author")
+    books = relationship("Book",
+                         back_populates="author",
+                         )
 
     def __repr__(self):
         return f'<Author(id="{self.id}", ' \
@@ -29,11 +32,12 @@ class Book(Base):
     year = Column(Integer)
     author_id = Column(Integer, ForeignKey("authors.id"))
 
-    author = relationship("Author", back_populates="books")
+    author = relationship("Author",
+                          back_populates="books"
+                          )
 
     def __repr__(self):
         return f'<Book(id="{self.id}", ' \
                f'title="{self.title}", ' \
                f'year="{self.year}", ' \
                f'author_id="{self.author_id}")>'
-

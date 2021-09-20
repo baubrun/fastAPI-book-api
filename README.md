@@ -1,5 +1,4 @@
-#### REST api for Books 
+#### REST api for Books
 
-#### Technologies: Python, FastAPI
+#### Technologies: FastAPI, Python, Pytest
 
-#### under construction

@@ -1,7 +1,6 @@
-from db_config import Base
+from .db import  Base
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
-from datetime import datetime
 
 
 class Author(Base):
